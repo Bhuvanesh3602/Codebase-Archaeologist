@@ -1,0 +1,163 @@
+import { Agent, DataSource, HistoryItem, User } from '../types'
+
+export const MOCK_USER: User = {
+  name: 'Giovanni Galatro',
+  email: 'giovanni@company.com',
+  company: 'Acme Corp',
+  avatar: 'GG',
+}
+
+export const MOCK_DATA_SOURCES: DataSource[] = [
+  {
+    id: 'notion',
+    name: 'Notion',
+    type: 'notion',
+    description: 'Wikis, docs and project notes',
+    connected: true,
+    lastSync: '2 hours ago',
+    docsCount: 847,
+  },
+  {
+    id: 'gdrive',
+    name: 'Google Drive',
+    type: 'gdrive',
+    description: 'Files, spreadsheets and presentations',
+    connected: true,
+    lastSync: '15 min ago',
+    docsCount: 1243,
+  },
+  {
+    id: 'confluence',
+    name: 'Confluence',
+    type: 'confluence',
+    description: 'Engineering and product documentation',
+    connected: false,
+    description2: 'Connect to include technical context',
+  } as DataSource,
+  {
+    id: 'salesforce',
+    name: 'Salesforce',
+    type: 'salesforce',
+    description: 'CRM data and deal history',
+    connected: true,
+    lastSync: '1 hour ago',
+    docsCount: 312,
+  },
+  {
+    id: 'slack',
+    name: 'Slack',
+    type: 'slack',
+    description: 'Team conversations and decisions',
+    connected: false,
+  },
+  {
+    id: 'sharepoint',
+    name: 'SharePoint',
+    type: 'sharepoint',
+    description: 'Corporate documents and policies',
+    connected: false,
+  },
+]
+
+export const MOCK_AGENTS: Agent[] = [
+  {
+    id: 'cfo_agent',
+    name: 'CFO',
+    role: 'Financial Adversary',
+    description: 'Attacks financial assumptions, metrics integrity and valuation logic.',
+    icon: '💰',
+    isBuiltIn: true,
+    enabled: true,
+    color: 'text-emerald-400',
+  },
+  {
+    id: 'market_agent',
+    name: 'Market',
+    role: 'Demand Skeptic',
+    description: 'Challenges demand assumptions and identifies where the moat is actually quicksand.',
+    icon: '📊',
+    isBuiltIn: true,
+    enabled: true,
+    color: 'text-blue-400',
+  },
+  {
+    id: 'legal_agent',
+    name: 'Legal',
+    role: 'Governance Watchdog',
+    description: 'Finds conflicts of interest and structures that protect insiders at everyone else\'s expense.',
+    icon: '⚖️',
+    isBuiltIn: true,
+    enabled: true,
+    color: 'text-purple-400',
+  },
+  {
+    id: 'competitor_agent',
+    name: 'Competitor',
+    role: 'Rival CEO',
+    description: 'Explains exactly how and why the competition will win, and why barriers to entry are lower than stated.',
+    icon: '🎯',
+    isBuiltIn: true,
+    enabled: true,
+    color: 'text-orange-400',
+  },
+  {
+    id: 'execution_agent',
+    name: 'Execution',
+    role: 'COO Skeptic',
+    description: 'Identifies why this specific organization will never pull this specific plan off.',
+    icon: '⚙️',
+    isBuiltIn: true,
+    enabled: true,
+    color: 'text-zinc-400',
+  },
+]
+
+export const MOCK_HISTORY: HistoryItem[] = [
+  {
+    id: 'h1',
+    title: 'WeWork S-1 IPO Filing 2019',
+    date: '2 days ago',
+    riskScore: 94,
+    verdict: 'DO_NOT_PROCEED',
+    vulnerabilitiesCount: 15,
+    tags: ['IPO', 'Real Estate', 'Governance'],
+  },
+  {
+    id: 'h2',
+    title: 'Acme Corp — Series B Pitch Deck',
+    date: '1 week ago',
+    riskScore: 62,
+    verdict: 'PROCEED_WITH_CAUTION',
+    vulnerabilitiesCount: 8,
+    tags: ['SaaS', 'B2B', 'Fundraising'],
+  },
+  {
+    id: 'h3',
+    title: 'Product Launch Strategy Q3 2026',
+    date: '2 weeks ago',
+    riskScore: 38,
+    verdict: 'PROCEED',
+    vulnerabilitiesCount: 4,
+    tags: ['Product', 'Go-to-Market'],
+  },
+  {
+    id: 'h4',
+    title: 'Meridian Acquisition Memo',
+    date: '1 month ago',
+    riskScore: 81,
+    verdict: 'DO_NOT_PROCEED',
+    vulnerabilitiesCount: 11,
+    tags: ['M&A', 'Due Diligence'],
+  },
+]
+
+export const DATA_SOURCE_ICONS: Record<string, string> = {
+  notion: '📝',
+  gdrive: '📁',
+  confluence: '📋',
+  salesforce: '☁️',
+  slack: '💬',
+  jira: '🔷',
+  sharepoint: '🏢',
+  upload: '📤',
+}

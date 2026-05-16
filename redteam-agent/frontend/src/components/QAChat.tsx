@@ -11,10 +11,12 @@ export function QAChat({ sessionId }: { sessionId: string }) {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isStreaming, setIsStreaming] = useState(false)
-  const bottomRef = useRef<HTMLDivElement>(null)
+  const messagesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight
+    }
   }, [messages])
 
   async function send() {
@@ -76,49 +78,72 @@ export function QAChat({ sessionId }: { sessionId: string }) {
     }
   }
 
-  return (
-    <div className="flex flex-col h-full">
-      <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3 shrink-0">
-        Q&amp;A — Ask the Red Team
-      </h3>
+  const SUGGESTIONS = [
+    'What should the board have done about governance?',
+    'Which finding is most likely to kill the deal?',
+    'How does this compare to similar cases?',
+  ]
 
-      <div className="flex-1 overflow-y-auto space-y-3 mb-3 min-h-0">
-        {messages.length === 0 && (
-          <p className="text-gray-600 text-sm italic">
-            Ask anything about the report findings...
-          </p>
-        )}
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`rounded-lg px-3 py-2 text-sm ${
-              msg.role === 'user'
-                ? 'bg-blue-900/40 text-blue-100 self-end ml-8'
-                : 'bg-gray-800 text-gray-200 mr-8'
-            }`}
-          >
-            {msg.content || <span className="animate-pulse text-gray-500">▋</span>}
-          </div>
-        ))}
-        <div ref={bottomRef} />
+  return (
+    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+      <div className="px-5 py-4 border-b border-zinc-800 flex items-center gap-2">
+        <span className="text-sm font-semibold text-white">Q&amp;A</span>
+        <span className="text-zinc-600 text-sm">—</span>
+        <span className="text-sm text-zinc-400">Ask the Red Team</span>
       </div>
 
-      <div className="flex gap-2 shrink-0">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && send()}
-          placeholder="e.g. What should the board have done about governance?"
-          className="flex-1 bg-gray-800 border border-gray-600 text-gray-200 text-sm rounded-lg px-3 py-2 placeholder-gray-600 focus:outline-none focus:border-blue-500"
-        />
-        <button
-          onClick={send}
-          disabled={!input.trim() || isStreaming}
-          className="px-3 py-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white rounded-lg text-sm font-medium transition-colors"
-        >
-          Send
-        </button>
+      <div className="p-5">
+        {messages.length === 0 && (
+          <div className="mb-4">
+            <p className="text-zinc-600 text-xs mb-3">Suggested questions</p>
+            <div className="flex flex-wrap gap-2">
+              {SUGGESTIONS.map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setInput(s)}
+                  className="text-xs text-zinc-400 bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded-full transition-colors border border-zinc-700"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {messages.length > 0 && (
+          <div ref={messagesRef} className="space-y-3 max-h-64 overflow-y-auto mb-4 pr-1">
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                className={`text-sm leading-relaxed rounded-xl px-4 py-3 ${
+                  msg.role === 'user'
+                    ? 'bg-zinc-800 text-white ml-8'
+                    : 'bg-zinc-950 text-zinc-300 mr-8'
+                }`}
+              >
+                {msg.content || <span className="animate-pulse text-zinc-600">▋</span>}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && send()}
+            placeholder="Ask anything about the findings..."
+            className="flex-1 bg-zinc-950 border border-zinc-700 text-white text-sm rounded-lg px-4 py-2.5 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
+          />
+          <button
+            onClick={send}
+            disabled={!input.trim() || isStreaming}
+            className="px-4 py-2.5 bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white rounded-lg text-sm font-medium transition-colors"
+          >
+            {isStreaming ? '...' : '→'}
+          </button>
+        </div>
       </div>
     </div>
   )
