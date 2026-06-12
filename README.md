@@ -90,4 +90,4 @@ AI makes it possible to do this at the speed of a document upload, with zero pol
 
 ---
 
-*Built at Milan AI Week Hackathon 2026 — Google Track + Vultr Track*
+*Red Team Agent — Strategic Adversarial AI System*

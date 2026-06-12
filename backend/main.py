@@ -9,7 +9,21 @@ from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
-from config import SESSIONS_COLLECTION, GEMINI_PRO_MODEL
+import os
+import google.generativeai as genai
+from config import SESSIONS_FILE, GEMINI_PRO_MODEL, GEMINI_API_KEY, GROQ_API_KEY, GROQ_MODEL
+
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
+
+groq_client = None
+if GROQ_API_KEY:
+    try:
+        from groq import Groq
+        groq_client = Groq(api_key=GROQ_API_KEY)
+    except Exception as e:
+        print(f"[groq] Failed to initialize Groq client: {e}")
+
 from models import AnalysisReport, QARequest, Vulnerability, SeverityLevel
 from models.severity import calculate_risk_score, get_verdict
 from rag.indexer import chunk_and_tag, store_chunks_in_memory
@@ -21,8 +35,28 @@ AGENT_NAMES = ["cfo_agent", "market_agent", "legal_agent", "competitor_agent", "
 sessions: dict[str, dict] = {}
 
 
+def _load_local_sessions():
+    global sessions
+    if os.path.exists(SESSIONS_FILE):
+        try:
+            with open(SESSIONS_FILE, "r", encoding="utf-8") as f:
+                sessions = json.load(f)
+        except Exception as e:
+            print(f"[sessions] Error loading local sessions: {e}")
+            sessions = {}
+
+
+def _save_local_sessions():
+    try:
+        with open(SESSIONS_FILE, "w", encoding="utf-8") as f:
+            json.dump(sessions, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"[sessions] Error saving local sessions: {e}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    _load_local_sessions()
     preload_wework()
     yield
 
@@ -80,11 +114,6 @@ async def _run_single_agent(agent_name: str, document_context: str) -> list[dict
         }
 
         system_prompt = prompts[agent_name]
-        model = genai.GenerativeModel(
-            model_name=GEMINI_PRO_MODEL,
-            system_instruction=system_prompt,
-        )
-
         user_message = f"""Analyze the following strategic document and identify vulnerabilities in your domain.
 
 DOCUMENT:
@@ -92,8 +121,25 @@ DOCUMENT:
 
 Produce the vulnerabilities in the required format.
 """
-        response = await asyncio.to_thread(model.generate_content, user_message)
-        text = response.text
+        if groq_client:
+            response = await asyncio.to_thread(
+                groq_client.chat.completions.create,
+                model=GROQ_MODEL,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_message}
+                ],
+                temperature=0.2
+            )
+            text = response.choices[0].message.content
+        else:
+            model = genai.GenerativeModel(
+                model_name=GEMINI_PRO_MODEL,
+                system_instruction=system_prompt,
+            )
+            response = await asyncio.to_thread(model.generate_content, user_message)
+            text = response.text
+
         return _parse_vulnerabilities(text, agent_name)
 
     except Exception as e:
@@ -107,18 +153,31 @@ async def _run_synthesis(all_vulnerabilities: list[dict]) -> dict:
         import google.generativeai as genai
         from agents.synthesis_agent import SYNTHESIS_SYSTEM_PROMPT
 
-        model = genai.GenerativeModel(
-            model_name=GEMINI_PRO_MODEL,
-            system_instruction=SYNTHESIS_SYSTEM_PROMPT,
-        )
-
         vulns_text = json.dumps(all_vulnerabilities, indent=2, ensure_ascii=False)
-        response = await asyncio.to_thread(
-            model.generate_content,
-            f"Synthesize these vulnerabilities into a JSON report:\n\n{vulns_text}",
-        )
+        user_message = f"Synthesize these vulnerabilities into a JSON report:\n\n{vulns_text}"
 
-        raw = response.text.strip()
+        if groq_client:
+            response = await asyncio.to_thread(
+                groq_client.chat.completions.create,
+                model=GROQ_MODEL,
+                messages=[
+                    {"role": "system", "content": SYNTHESIS_SYSTEM_PROMPT},
+                    {"role": "user", "content": user_message}
+                ],
+                temperature=0.1
+            )
+            raw = response.choices[0].message.content.strip()
+        else:
+            model = genai.GenerativeModel(
+                model_name=GEMINI_PRO_MODEL,
+                system_instruction=SYNTHESIS_SYSTEM_PROMPT,
+            )
+            response = await asyncio.to_thread(
+                model.generate_content,
+                user_message,
+            )
+            raw = response.text.strip()
+
         json_match = re.search(r"\{.*\}", raw, re.DOTALL)
         if json_match:
             return json.loads(json_match.group())
@@ -183,13 +242,7 @@ async def _event_stream(
     report_data = await _run_synthesis(all_vulnerabilities)
 
     sessions[session_id] = report_data
-
-    try:
-        from google.cloud import firestore
-        db = firestore.Client()
-        db.collection(SESSIONS_COLLECTION).document(session_id).set(report_data)
-    except Exception:
-        pass
+    _save_local_sessions()
 
     yield sse({"event": "complete", "report": report_data, "progress": 100})
 
@@ -250,15 +303,6 @@ async def get_session(session_id: str):
     if session_id in sessions:
         return sessions[session_id]
 
-    try:
-        from google.cloud import firestore
-        db = firestore.Client()
-        doc = db.collection(SESSIONS_COLLECTION).document(session_id).get()
-        if doc.exists:
-            return doc.to_dict()
-    except Exception:
-        pass
-
     raise HTTPException(status_code=404, detail="Session not found")
 
 
@@ -277,8 +321,6 @@ async def qa(request: QARequest):
                 "You are a Red Team analyst. Answer questions based on the report "
                 "and the document context. Maintain a critical and precise tone."
             )
-            model = genai.GenerativeModel(model_name=GEMINI_PRO_MODEL, system_instruction=system)
-
             prompt = f"""RED TEAM REPORT:
 {report_context}
 
@@ -287,10 +329,24 @@ DOCUMENT CONTEXT:
 
 QUESTION: {request.question}"""
 
-            response = model.generate_content(prompt, stream=True)
-            for chunk in response:
-                if chunk.text:
-                    yield f"data: {json.dumps({'delta': chunk.text})}\n\n"
+            if groq_client:
+                response = groq_client.chat.completions.create(
+                    model=GROQ_MODEL,
+                    messages=[
+                        {"role": "system", "content": system},
+                        {"role": "user", "content": prompt}
+                    ],
+                    stream=True
+                )
+                for chunk in response:
+                    if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
+                        yield f"data: {json.dumps({'delta': chunk.choices[0].delta.content})}\n\n"
+            else:
+                model = genai.GenerativeModel(model_name=GEMINI_PRO_MODEL, system_instruction=system)
+                response = model.generate_content(prompt, stream=True)
+                for chunk in response:
+                    if chunk.text:
+                        yield f"data: {json.dumps({'delta': chunk.text})}\n\n"
 
         except Exception as e:
             yield f"data: {json.dumps({'error': str(e)})}\n\n"

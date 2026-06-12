@@ -5,7 +5,7 @@ from typing import Optional
 
 import fitz  # PyMuPDF
 
-from config import PROJECT_ID, REGION, DECISION_INDEX_ID, INTERNAL_INDEX_ID
+# Cloud configuration imports removed for local-only execution
 
 CHUNK_SIZE = 512
 CHUNK_OVERLAP = 64
@@ -75,36 +75,9 @@ def chunk_and_tag(source_path: str, layer: str) -> list[dict]:
 
 
 def ingest_document(source_path: str, layer: str = "decision") -> list[dict]:
-    """Chunk a document and upsert embeddings into the appropriate Vertex AI index."""
+    """Chunk a document and store chunks in the local memory store."""
     chunks = chunk_and_tag(source_path, layer)
-
-    try:
-        from google.cloud import aiplatform
-        from vertexai.language_models import TextEmbeddingModel
-
-        aiplatform.init(project=PROJECT_ID, location=REGION)
-        embedding_model = TextEmbeddingModel.from_pretrained("text-embedding-004")
-
-        index_id = DECISION_INDEX_ID if layer == "decision" else INTERNAL_INDEX_ID
-        texts = [c["text"] for c in chunks]
-
-        embeddings = embedding_model.get_embeddings(texts)
-
-        datapoints = []
-        for chunk, emb in zip(chunks, embeddings):
-            datapoints.append({
-                "id": chunk["id"],
-                "embedding": emb.values,
-                "restricts": [{"namespace": "domain", "allow_list": chunk["domains"]}],
-            })
-
-        index = aiplatform.MatchingEngineIndex(index_name=index_id)
-        index.upsert_datapoints(datapoints=datapoints)
-
-    except Exception as e:
-        print(f"[indexer] Vertex AI unavailable ({e}), storing chunks in memory only")
-        _memory_store[layer].extend(chunks)
-
+    _memory_store[layer].extend(chunks)
     return chunks
 
 

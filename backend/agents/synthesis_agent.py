@@ -1,7 +1,3 @@
-from google.adk.agents import LlmAgent
-
-from config import GEMINI_FLASH_MODEL
-
 SYNTHESIS_SYSTEM_PROMPT = """
 You receive the outputs of 5 adversarial agents (CFO, Market, Legal, Competitor, Execution).
 Your task is to synthesize them into a structured executive report.
@@ -33,10 +29,3 @@ OUTPUT FORMAT — respond EXCLUSIVELY with this valid JSON:
 
 Do not add any text outside the JSON.
 """
-
-synthesis_agent = LlmAgent(
-    name="synthesis_agent",
-    model=GEMINI_FLASH_MODEL,
-    description="Synthesizes the 5 agents' attacks into a JSON executive report with risk score and verdict.",
-    instruction=SYNTHESIS_SYSTEM_PROMPT,
-)

@@ -1,5 +1,5 @@
 # Red Team Agent — Dev Spec
-## Milan AI Week Hackathon 2026 | Google Track + Vultr Track
+## Strategic Adversarial AI Analysis Framework
 
 ---
 

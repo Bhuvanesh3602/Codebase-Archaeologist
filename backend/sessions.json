@@ -1,0 +1,418 @@
+{
+  "292c373a-55d6-4aba-828b-247f9e4f2f6b": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "984181c5-4c3d-4012-a59a-b580361f70e8": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "d5edc933-3909-4a62-a4fb-d79ecb942925": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "b823ec89-3f4c-4599-b89e-8300ae67fcda": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "3f00da4a-0e51-4d3d-9742-68c5889a95ab": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "64a0df7c-9dda-4f14-8c70-f207dbba57dc": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "c3eb901d-a2a6-4822-b901-48062151a03d": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "0ec579e8-1d4b-49a8-bbb1-3bf0851bd1d0": {
+    "risk_score": 0,
+    "executive_summary": "The document presents critical vulnerabilities across multiple dimensions. Financial, governance, and operational risks amplify each other. The adversarial verdict is unequivocal: do not proceed under current conditions.",
+    "vulnerabilities": [],
+    "top_3_questions": [],
+    "verdict": "PROCEED"
+  },
+  "8292b5c1-6486-41a9-8cb6-a92340c6deda": {
+    "risk_score": 87,
+    "executive_summary": "The proposed acquisition of AeroGo poses significant risks due to unrealistic regulatory clearance timelines, overvalued acquisition price, and insufficient planning for vertiport infrastructure, pilot recruitment, and customer acquisition. The company's aggressive growth projections and lack of contingency plans for potential setbacks raise concerns about its ability to achieve projected valuations and returns on investment.",
+    "vulnerabilities": [
+      {
+        "id": "competitor_agent_1",
+        "agent": "competitor_agent",
+        "title": "Overvaluation of AeroGo",
+        "severity": "CRITICAL",
+        "attack": "The proposed acquisition of AeroGo for $450 million in stock seems overvalued, considering the company is pre-revenue and has not yet launched commercial operations.",
+        "question": "What specific factors justify the high valuation of AeroGo, and how will the company achieve the projected $5 billion valuation by 2030?"
+      },
+      {
+        "id": "legal_agent_1",
+        "agent": "legal_agent",
+        "title": "Undisclosed Regulatory Exposure",
+        "severity": "CRITICAL",
+        "attack": "The proposal assumes regulator clearance from the Federal Aviation Administration (FAA) by June 2027 without providing any evidence of ongoing discussions or guarantees of approval.",
+        "question": "What concrete assurances or milestones have been achieved with the FAA to ensure type certification for the eVTOL by June 2027, and how will regulatory delays be mitigated?"
+      },
+      {
+        "id": "execution_agent_1",
+        "agent": "execution_agent",
+        "title": "Inadequate Regulatory Clearance Timeline",
+        "severity": "CRITICAL",
+        "attack": "The proposal assumes the Federal Aviation Administration (FAA) will grant type certification for the eVTOL by June 2027, which is an extremely aggressive timeline given the complexity of the certification process.",
+        "question": "What contingency plans are in place if the FAA certification is delayed, and how will this impact the projected launch of commercial operations in Q4 2027?"
+      },
+      {
+        "id": "cfo_agent_1",
+        "agent": "cfo_agent",
+        "title": "Unrealistic Revenue Projections",
+        "severity": "CRITICAL",
+        "attack": "The document projects $0 in revenue for 2026, $4M for 2027, $48M for 2028, and $210M for 2029, which seem unrealistic given the assumption of only 12 eVTOL vehicles in operation by the end of 2027.",
+        "question": "How do you justify the significant increase in revenue from $4M in 2027 to $48M in 2028, given the relatively small increase in the number of eVTOL vehicles?"
+      },
+      {
+        "id": "market_agent_2",
+        "agent": "market_agent",
+        "title": "Insufficient Regulatory Clearance Planning",
+        "severity": "CRITICAL",
+        "attack": "The document assumes that the FAA will grant type certification for the eVTOL by June 2027, but this timeline may be overly aggressive.",
+        "question": "What contingency plans are in place in case the FAA certification process takes longer than expected, and how will the company mitigate the impact of potential delays?"
+      },
+      {
+        "id": "competitor_agent_2",
+        "agent": "competitor_agent",
+        "title": "Regulatory Risks and Uncertainty",
+        "severity": "HIGH",
+        "attack": "The assumption that the FAA will grant type certification for the eVTOL by June 2027 is uncertain and may be delayed.",
+        "question": "What contingency plans are in place in case of regulatory delays, and how will the company mitigate the risks associated with uncertain certification timelines?"
+      },
+      {
+        "id": "execution_agent_2",
+        "agent": "execution_agent",
+        "title": "Insufficient Pilot Recruitment and Training",
+        "severity": "HIGH",
+        "attack": "The plan to recruit helicopter pilots at a standard wage of $75/hour may not be sufficient to attract and retain the necessary talent.",
+        "question": "What strategies are in place to ensure the recruitment and retention of qualified pilots, and what resources will be dedicated to developing a customized training program for eVTOL operations?"
+      },
+      {
+        "id": "market_agent_4",
+        "agent": "market_agent",
+        "title": "Inadequate Vertiport Infrastructure Planning",
+        "severity": "HIGH",
+        "attack": "The document assumes that leasing roof access on existing downtown parking garages will be sufficient for building vertiports, but this may not be feasible.",
+        "question": "What plans are in place to address potential vertiport infrastructure challenges, and how will the company ensure that it can secure sufficient locations to support its expansion plans?"
+      },
+      {
+        "id": "legal_agent_2",
+        "agent": "legal_agent",
+        "title": "Founder Control and Removal",
+        "severity": "HIGH",
+        "attack": "The document does not specify the governance structure post-acquisition, particularly regarding the control and potential removal of AeroGo's founders.",
+        "question": "What provisions are in place regarding the governance and control of AeroGo post-acquisition, and under what conditions can the founders be removed from their positions?"
+      },
+      {
+        "id": "competitor_agent_5",
+        "agent": "competitor_agent",
+        "title": "Moat Assumptions and Patent Protection",
+        "severity": "HIGH",
+        "attack": "The assumption that AeroGo's 12 patents covering thermal battery management and rotor blade acoustics provide a significant moat may be overstated.",
+        "question": "What evidence supports the assumption that AeroGo's patents provide a significant barrier to entry, and how will the company protect its intellectual property rights in a rapidly evolving industry?"
+      },
+      {
+        "id": "execution_agent_3",
+        "agent": "execution_agent",
+        "title": "Overly Ambitious Expansion Rate",
+        "severity": "HIGH",
+        "attack": "The planned expansion from 1 vertiport in San Francisco to 20 vertiports across California and Texas within 18 months of launch may be unrealistic.",
+        "question": "What is the basis for the assumed expansion rate, and how will the organization ensure that it has the necessary resources, infrastructure, and personnel to support such rapid growth?"
+      },
+      {
+        "id": "legal_agent_4",
+        "agent": "legal_agent",
+        "title": "Overreliance on Projections",
+        "severity": "HIGH",
+        "attack": "The strategic acquisition proposal heavily relies on aggressive growth projections, including the expansion of the active fleet, revenue, and net income.",
+        "question": "What contingency plans are in place if the projected growth rates are not achieved, and how will the company adapt to potential setbacks in areas like regulatory approval, market acceptance, or operational efficiency?"
+      },
+      {
+        "id": "market_agent_1",
+        "agent": "market_agent",
+        "title": "Unrealistic Utilization Rates",
+        "severity": "HIGH",
+        "attack": "The assumption of 12 trips per day with a 75% load factor is overly optimistic, especially considering the novelty of the service and potential regulatory hurdles.",
+        "question": "What evidence is there to support the assumption of 12 trips per day, and how will the company adapt to potential reductions in utilization rates?"
+      },
+      {
+        "id": "competitor_agent_3",
+        "agent": "competitor_agent",
+        "title": "High Customer Acquisition Costs and Unproven Demand",
+        "severity": "MEDIUM",
+        "attack": "The estimated Customer Acquisition Cost (CAC) of $15 per customer may be underestimated, considering the novelty of the eVTOL service and the potential need for more extensive marketing efforts.",
+        "question": "What evidence supports the demand assumptions, and how will the company adjust its pricing and marketing strategies if customer adoption is slower than expected?"
+      },
+      {
+        "id": "execution_agent_4",
+        "agent": "execution_agent",
+        "title": "Inadequate Vertiport Infrastructure Planning",
+        "severity": "MEDIUM",
+        "attack": "The proposal to lease roof access on existing downtown parking garages to build landing hubs (\"Vertiports\") may not be feasible in all locations.",
+        "question": "What is the organization's plan for identifying and addressing potential infrastructure and community-related challenges associated with vertiport development, and how will these factors impact the overall expansion strategy?"
+      },
+      {
+        "id": "execution_agent_5",
+        "agent": "execution_agent",
+        "title": "Single Point of Failure in Technology Development",
+        "severity": "MEDIUM",
+        "attack": "The proposal relies heavily on the development and integration of AeroGo's proprietary technology, including thermal battery management and rotor blade acoustics.",
+        "question": "What contingency plans are in place to mitigate the risk of technical issues or delays in the development of AeroGo's proprietary technology, and how will the organization ensure that it has the necessary expertise and resources to address these challenges?"
+      },
+      {
+        "id": "legal_agent_3",
+        "agent": "legal_agent",
+        "title": "Related-Party Transactions",
+        "severity": "MEDIUM",
+        "attack": "The proposal involves significant capital expenditures and operational losses funded through corporate debt and secondary equity offerings but does not detail any potential related-party transactions.",
+        "question": "Are there any planned or existing related-party transactions (e.g., contracts with entities owned by the founders or executives) that could pose a conflict of interest, and if so, how will these be disclosed and approved?"
+      },
+      {
+        "id": "legal_agent_5",
+        "agent": "legal_agent",
+        "title": "Lack of Exit Clauses",
+        "severity": "MEDIUM",
+        "attack": "The proposal does not mention any exit clauses or conditions under which the acquisition could be reversed or renegotiated if certain milestones are not met.",
+        "question": "Are there any exit clauses or performance milestones included in the acquisition agreement that would allow for renegotiation or reversal of the deal if AeroGo fails to meet specified targets or regulatory hurdles?"
+      },
+      {
+        "id": "market_agent_3",
+        "agent": "market_agent",
+        "title": "Overreliance on Unproven Customer Acquisition Strategy",
+        "severity": "MEDIUM",
+        "attack": "The document estimates a Customer Acquisition Cost (CAC) of $15 per customer, but this may not be realistic.",
+        "question": "What evidence is there to support the estimated CAC, and how will the company adapt its customer acquisition strategy if actual costs are higher than expected?"
+      },
+      {
+        "id": "market_agent_5",
+        "agent": "market_agent",
+        "title": "Lack of Autonomous Flight Roadmap",
+        "severity": "MEDIUM",
+        "attack": "The document mentions that the long-term roadmap targets autonomous flight, but it does not provide a clear timeline or plan for achieving this goal.",
+        "question": "What is the company's plan for developing and implementing autonomous flight capabilities, and how will it address the regulatory and technical challenges associated with this technology?"
+      },
+      {
+        "id": "competitor_agent_4",
+        "agent": "competitor_agent",
+        "title": "Operational Complexity and Pilot Recruitment",
+        "severity": "MEDIUM",
+        "attack": "The plan to recruit helicopter pilots at a standard wage of $75/hour may not be sufficient to attract and retain top talent.",
+        "question": "What strategies are in place to attract and retain experienced pilots, and how will the company manage the operational complexity of its eVTOL network to ensure efficient and safe operations?"
+      },
+      {
+        "id": "cfo_agent_3",
+        "agent": "cfo_agent",
+        "title": "Inadequate Cost Estimation",
+        "severity": "MEDIUM",
+        "attack": "The document estimates the Customer Acquisition Cost (CAC) at $15 per customer, which seems low considering the high-impact social media marketing and airport billboard campaigns planned.",
+        "question": "How did the company arrive at the estimated CAC of $15 per customer, and what contingency plans are in place to address potential cost overruns or unforeseen expenses in the capital expenditures and operational costs?"
+      },
+      {
+        "id": "cfo_agent_2",
+        "agent": "cfo_agent",
+        "title": "Insufficient Regulatory Clearance Planning",
+        "severity": "HIGH",
+        "attack": "The document assumes that the Federal Aviation Administration (FAA) will grant type certification for the eVTOL by June 2027, allowing commercial flights immediately.",
+        "question": "What is the plan to mitigate the risk of delayed regulatory clearance, and how will the company manage the associated costs and revenue shortfalls?"
+      }
+    ],
+    "top_3_questions": [
+      "What specific factors justify the high valuation of AeroGo, and how will the company achieve the projected $5 billion valuation by 2030?",
+      "What concrete assurances or milestones have been achieved with the FAA to ensure type certification for the eVTOL by June 2027, and how will regulatory delays be mitigated?",
+      "What contingency plans are in place if the projected growth rates are not achieved, and how will the company adapt to potential setbacks in areas like regulatory approval, market acceptance, or operational efficiency?"
+    ],
+    "verdict": "DO_NOT_PROCEED"
+  },
+  "75609f45-b4bc-4e39-af27-56259b8d9dbe": {
+    "risk_score": 92,
+    "executive_summary": "AeroGo's aggressive regulatory timeline, inaccurate labor market assumptions, and underestimated operating expenses pose significant risks to the company's commercial launch and long-term viability. The convergence of critical vulnerabilities across multiple agents underscores the need for immediate attention and mitigation. Failure to address these risks may result in substantial delays, cost overruns, and financial burdens that could jeopardize the company's future.",
+    "vulnerabilities": [
+      {
+        "id": "regulatory_timeline_critical",
+        "agent": "multiple",
+        "title": "Unrealistic Regulatory Timeline",
+        "severity": "CRITICAL",
+        "attack": "The assumption of FAA type certification by June 2027 is highly optimistic, with standard certification times for novel aircraft hulls averaging 4 to 6 years. This discrepancy suggests a significant delay in commercial launch, providing an opportunity for competitors to enter the market.",
+        "question": "How can AeroGo justify its accelerated regulatory timeline when industry benchmarks and historical data suggest a much longer certification process?"
+      },
+      {
+        "id": "labor_market_high",
+        "agent": "multiple",
+        "title": "Inaccurate Labor Market Assumptions",
+        "severity": "HIGH",
+        "attack": "The assumption of commercial helicopter pilots working for $75/hour is inaccurate, with qualified multi-engine rotary pilots commanding standard wages of $180 to $220/hour. This discrepancy will significantly impact operating expenses, and the company's recruitment pipeline has only identified 3 certified test pilots, far short of the 45 pilots required for launch.",
+        "question": "How will AeroGo address the significant gap in pilot recruitment and salary assumptions, and what impact will this have on the company's overall cost structure?"
+      },
+      {
+        "id": "operating_expenses_high",
+        "agent": "multiple",
+        "title": "Underestimated Operating Expenses",
+        "severity": "HIGH",
+        "attack": "The company's business model budget appears to underestimate operating expenses, including battery replacement costs, hull insurance, and grid capacity upgrades. These expenses will likely have a substantial impact on the company's financial performance.",
+        "question": "How will AeroGo address the significant discrepancies in its operating expense assumptions, and what impact will this have on the company's overall profitability and competitiveness?"
+      },
+      {
+        "id": "infrastructure_medium",
+        "agent": "multiple",
+        "title": "Insufficient Infrastructure",
+        "severity": "MEDIUM",
+        "attack": "Most target vertiports do not have connection access to high-voltage grid lines, requiring local utility upgrades costing up to $1.2M per terminal. This infrastructure limitation may hinder the company's ability to scale its operations efficiently.",
+        "question": "What plans does AeroGo have to address the infrastructure gaps, and how will it prioritize investments in vertiport upgrades to support its growth strategy?"
+      },
+      {
+        "id": "market_demand_high",
+        "agent": "market_agent",
+        "title": "Unproven Market Demand",
+        "severity": "HIGH",
+        "attack": "The document does not provide convincing evidence of strong market demand for the company's services. The lack of clear demand and potential competition from established transportation modes may pose a significant risk to the company's long-term viability.",
+        "question": "What market research has AeroGo conducted to validate demand for its services, and how will it differentiate its offerings to attract and retain customers in a potentially crowded market?"
+      },
+      {
+        "id": "organizational_capacity_critical",
+        "agent": "execution_agent",
+        "title": "Inadequate Organizational Capacity for Expansion",
+        "severity": "CRITICAL",
+        "attack": "The pace of expansion required to meet the commercial launch timeline may outstrip the organization's capacity to execute, particularly given the complexity of the challenges faced by AeroGo.",
+        "question": "How will AeroGo assess its internal capacity to execute the expansion plan, and what steps will it take to ensure that it has the necessary resources, personnel, and expertise to manage the rapid growth and complexity of the AeroGo acquisition?"
+      }
+    ],
+    "top_3_questions": [
+      "How can AeroGo justify its accelerated regulatory timeline when industry benchmarks and historical data suggest a much longer certification process?",
+      "How will AeroGo address the significant gap in pilot recruitment and salary assumptions, and what impact will this have on the company's overall cost structure?",
+      "How will AeroGo assess its internal capacity to execute the expansion plan, and what steps will it take to ensure that it has the necessary resources, personnel, and expertise to manage the rapid growth and complexity of the AeroGo acquisition?"
+    ],
+    "verdict": "DO_NOT_PROCEED"
+  },
+  "3c03dbb6-d259-448a-ba6f-abfa7205429e": {
+    "risk_score": 87,
+    "executive_summary": "The proposed acquisition of AeroGo poses significant risks due to overly optimistic assumptions about regulatory clearance, market demand, and operational efficiencies. The company's valuation and growth projections are also uncertain, with potential for significant delays or setbacks. Management must carefully consider these risks and develop contingency plans to mitigate them.",
+    "vulnerabilities": [
+      {
+        "id": "regulatory_clearance",
+        "agent": "multiple",
+        "title": "Regulatory Clearance Risks",
+        "severity": "CRITICAL",
+        "attack": "The assumption that the FAA will grant type certification for the eVTOL by June 2027 is highly uncertain and may be overly optimistic. Delays or setbacks in regulatory clearance could significantly impact the launch timeline and overall business plan.",
+        "question": "What contingency plans are in place in case the regulatory approvals are delayed or denied, and how will this impact the overall business strategy?"
+      },
+      {
+        "id": "valuation_and_growth",
+        "agent": "multiple",
+        "title": "Overvaluation and Growth Risks",
+        "severity": "CRITICAL",
+        "attack": "The proposed acquisition of AeroGo for $450 million in stock seems overly optimistic, considering the company is pre-revenue and has not yet received regulatory clearance. The company's growth projections are also uncertain, with potential for significant delays or setbacks.",
+        "question": "Is the valuation of AeroGo justified, given its pre-revenue status and the significant regulatory hurdles it still needs to overcome?"
+      },
+      {
+        "id": "market_demand",
+        "agent": "market_agent",
+        "title": "Unproven Market Demand",
+        "severity": "HIGH",
+        "attack": "The proposal assumes a high level of demand for air taxi services, with an average of 12 trips per day per vehicle and a load factor of 75%. However, there is limited evidence to support this assumption, and similar services such as helicopter taxis have struggled to gain traction in the past.",
+        "question": "What evidence is there to support the assumed demand for air taxi services, and how will the company adapt if actual demand is lower than projected?"
+      },
+      {
+        "id": "customer_acquisition",
+        "agent": "multiple",
+        "title": "High Customer Acquisition Costs",
+        "severity": "HIGH",
+        "attack": "The estimated customer acquisition cost (CAC) of $15 per customer may be overly optimistic, given the novelty of the eVTOL service and the need to educate customers about its benefits. Higher CACs could significantly impact the company's profitability.",
+        "question": "What is the basis for the estimated CAC, and how will the company adjust its marketing strategy if the actual CAC is higher than projected?"
+      },
+      {
+        "id": "operational_efficiencies",
+        "agent": "multiple",
+        "title": "Dependence on Unproven Operational Efficiencies",
+        "severity": "MEDIUM",
+        "attack": "The proposal assumes that the company can achieve high utilization rates and efficient operations, with each eVTOL vehicle running 12 trips per day. However, this may be difficult to achieve in practice, especially in complex urban environments.",
+        "question": "What contingency plans are in place if the company is unable to achieve the projected operational efficiencies, and how will this impact the overall viability of the business model?"
+      }
+    ],
+    "top_3_questions": [
+      "What contingency plans are in place in case the regulatory approvals are delayed or denied, and how will this impact the overall business strategy?",
+      "Is the valuation of AeroGo justified, given its pre-revenue status and the significant regulatory hurdles it still needs to overcome?",
+      "What evidence is there to support the assumed demand for air taxi services, and how will the company adapt if actual demand is lower than projected?"
+    ],
+    "verdict": "PROCEED_WITH_CAUTION"
+  },
+  "bcf3b650-fe42-4137-ab5c-905b1e4c53b0": {
+    "risk_score": 85,
+    "executive_summary": "The proposed acquisition of AeroGo poses significant risks due to unrealistic assumptions about regulatory clearance, revenue projections, and competitive advantage. The company's aggressive growth plan, overreliance on unproven customer acquisition strategies, and lack of transparency on governance and control mechanisms further exacerbate these risks.",
+    "vulnerabilities": [
+      {
+        "id": "regulatory_clearance",
+        "agent": "multiple",
+        "title": "Regulatory Clearance Risk",
+        "severity": "CRITICAL",
+        "attack": "The assumption that the FAA will grant type certification for the eVTOL by June 2027 is highly uncertain and may be overly optimistic. Delays or changes in regulatory requirements could significantly impact the launch timeline and revenue projections.",
+        "question": "What contingency plans are in place in case of regulatory delays or changes, and how will the company mitigate the risks associated with the certification process?"
+      },
+      {
+        "id": "revenue_projections",
+        "agent": "cfo_agent",
+        "title": "Unrealistic Revenue Projections",
+        "severity": "CRITICAL",
+        "attack": "The projected revenue of $48M in 2028 is significantly higher than the calculated revenue based on the provided assumptions. This discrepancy suggests that the revenue projections are overly optimistic.",
+        "question": "How do you justify the significant gap between the projected revenue and the calculated revenue based on the provided assumptions?"
+      },
+      {
+        "id": "customer_acquisition",
+        "agent": "multiple",
+        "title": "Overreliance on Unproven Customer Acquisition Strategy",
+        "severity": "HIGH",
+        "attack": "The estimated Customer Acquisition Cost (CAC) of $15 per customer seems low, especially considering the novelty of the service and the potential need for significant education and marketing efforts to attract customers.",
+        "question": "What is the basis for the estimated CAC of $15 per customer, and how will the company adjust its marketing strategy if actual CACs are significantly higher?"
+      },
+      {
+        "id": "vertiport_infrastructure",
+        "agent": "multiple",
+        "title": "Inadequate Vertiport Infrastructure Plan",
+        "severity": "HIGH",
+        "attack": "The plan to lease roof access on existing downtown parking garages to build vertiports may face significant logistical and regulatory challenges. The document does not provide details on the vertiport design, construction, and maintenance costs, which could be substantial.",
+        "question": "What is the detailed plan for establishing and maintaining the vertiport network, and how will the company address potential logistical and regulatory challenges?"
+      },
+      {
+        "id": "competitive_advantage",
+        "agent": "multiple",
+        "title": "Overestimation of Competitive Advantage",
+        "severity": "MEDIUM",
+        "attack": "The company's 12 patents may not provide a sustainable competitive advantage, especially if other companies are able to develop similar or alternative technologies.",
+        "question": "How will the company maintain its competitive advantage in the face of rapid technological advancements and potential patent workarounds by competitors?"
+      }
+    ],
+    "top_3_questions": [
+      "What contingency plans are in place in case of regulatory delays or changes, and how will the company mitigate the risks associated with the certification process?",
+      "How do you justify the significant gap between the projected revenue and the calculated revenue based on the provided assumptions?",
+      "What is the basis for the estimated CAC of $15 per customer, and how will the company adjust its marketing strategy if actual CACs are significantly higher?"
+    ],
+    "verdict": "PROCEED_WITH_CAUTION"
+  }
+}
